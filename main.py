@@ -48,35 +48,35 @@ def find_y_hat(i):
                y_hat[j] = 1
      return y_hat
 
-# c = []
-# lr = []
-#
-# # X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
-# for j in range(1, len(np.unique(y))+1):
-#     coefs = np.random.randn(1, n)
-#     y1 = find_y_hat(j)
-#     for i in range(1000):
-#         if i % 10 == 0:
-#             learning_rate *= 0.995
-#             lr.append(learning_rate)
-#         coefs = theta(coefs)
-#         co = cost(coefs, x, y1)[0]
-#         print(f"LR: {learning_rate} Lv: {i + 1} ==> Cost: {co}")
-#         c.append(co)
-#
-#
-# for i in range(1, len(np.unique(y))+1):
-#     predicted_y = np.zeros((x.shape[0], 1))
-#     coefs = np.random.randn(1, n)
-#     for j in range(0, len(y)):
-#         if h(coefs, x)[j] > 0.5 :
-#             predicted_y[j] = 1
-#     print(predicted_y)
-#
-# plt.xlabel("Iteration")
-# plt.ylabel("Cost")
-# plt.plot(c)
-# plt.show()
+c = []
+lr = []
+
+# X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
+for j in range(1, len(np.unique(y))+1):
+    coefs = np.random.randn(1, n)
+    y1 = find_y_hat(j)
+    for i in range(1000):
+        if i % 10 == 0:
+            learning_rate *= 0.995
+            lr.append(learning_rate)
+        coefs = theta(coefs)
+        co = cost(coefs, x, y1)[0]
+        print(f"LR: {learning_rate} Lv: {i + 1} ==> Cost: {co}")
+        c.append(co)
+
+
+for i in range(1, len(np.unique(y))+1):
+    predicted_y = np.zeros((x.shape[0], 1))
+    coefs = np.random.randn(1, n)
+    for j in range(0, len(y)):
+        if h(coefs, x)[j] > 0.5 :
+            predicted_y[j] = 1
+    print(predicted_y)
+
+plt.xlabel("Iteration")
+plt.ylabel("Cost")
+plt.plot(c)
+plt.show()
 
 
 def forward_propagation(theta1, theta2, x):
